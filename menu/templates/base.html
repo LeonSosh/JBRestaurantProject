@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant</title>
+    <!-- Compiled and minified CSS -->
+    <link type="text/css"
+          rel="stylesheet"
+          href="{% static 'css/materialize.min.css' %}"
+          media="screen,projection" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet" />
+    <link type="text/css"
+          rel="stylesheet"
+          href="{% static 'css/style.css' %}"
+          media="screen,projection" />
+  </head>
+  <body>
+    <nav role="navigation" class="black">
+      <div class="nav-wrapper container">
+        <a href="{% url 'landing_page' %}" class="brand-logo">Restaurant</a>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <a href="{% url 'landing_page' %}">Home</a>
+          </li>
+          <li>
+            <a href="{% url 'categories' %}">Categories</a>
+          </li>
+          {% if user.is_authenticated %}
+            <li>
+              <a href="{% url 'cart' %}">View Cart</a>
+            </li>
+            <li>
+              <a href="{% url 'order_history' %}">Order History</a>
+            </li>
+            <li>
+              <a href="{% url 'update_details' %}">Update Details</a>
+            </li>
+            <li>
+              Logged in as: {{ user.username }}
+              {% if user.is_staff %}(Manager){% endif %}
+            </li>
+            <li>
+              <a href="{% url 'logout' %}">Logout</a>
+            </li>
+          {% else %}
+            <li>
+              <a href="{% url 'user_login' %}">Login</a>
+            </li>
+            <li>
+              <a href="{% url 'register' %}">Register</a>
+            </li>
+          {% endif %}
+        </ul>
+        <ul id="nav-mobile" class="sidenav">
+          <li>
+            <a href="{% url 'categories' %}">Categories</a>
+          </li>
+          {% if user.is_authenticated %}
+            <li>
+              <a href="{% url 'cart' %}">View Cart</a>
+            </li>
+            <li>
+              <a href="{% url 'order_history' %}">Order History</a>
+            </li>
+            <li>
+              <a href="{% url 'update_details' %}">Update Details</a>
+            </li>
+            <li>
+              <a href="#">{{ user.username }}</a>
+            </li>
+            {% if user.is_staff %}<li>(Manager)</li>{% endif %}
+            <li>
+              <a href="{% url 'logout' %}">Logout</a>
+            </li>
+          {% else %}
+            <li>
+              <a href="{% url 'user_login' %}">Login</a>
+            </li>
+            <li>
+              <a href="{% url 'register' %}">Register</a>
+            </li>
+          {% endif %}
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons menu">menu</i></a>
+      </div>
+    </nav>
+    <main>
+      <div class="container">
+        {% block content %}{% endblock %}
+      </div>
+    </main>
+    <footer class="page-footer black">
+      <div class="container">
+        <div class="row">
+          <div class="l6 s12">
+            <h5>Project Restaurant</h5>
+            <p>Leon Soshinski's Project</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright black">
+        <div class="container">© 2023 Hello</div>
+      </div>
+    </footer>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize/dist/js/materialize.min.js"></script>
+    <script>M.AutoInit();</script>
+  </body>
+</html>

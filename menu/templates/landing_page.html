@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>
+        Welcome to the Restaurant
+        {% if user.is_authenticated %}
+            ,
+            {% if user.is_staff %}Manager{% endif %}
+            {{ user.first_name }} {{ user.last_name }}
+        {% endif %}
+    </h2>
+    <h5>
+        Explore our delicious menu and place your orders now!
+    </p>
+    {% if user.is_authenticated %}
+        <p>
+            <h3>
+                <a href="{% url 'place_order' %}">Place Order</a>
+            </h3>
+        </p>
+        {% if user.is_staff %}
+            <h3>
+                <a href="{% url 'management_panel' %}">Management Panel</a>
+            </h3>
+        {% endif %}
+    {% endif %}
+    <h1>Categories:</h1>
+    <div class="container">
+        <div class="row">
+            {% for category in categories %}
+                <div class="col s12 m4">
+                    <div class="card item-card">
+                        <a href="{% url 'dishes' category.id %}">
+                            <div class="card-image">
+                                <img class="category-image"
+                                     src="{{ category.image.url }}"
+                                     alt="{{ category.name }}">
+                                <span class="card-title">{{ category.name }}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                </div>
+                <div class="row">
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

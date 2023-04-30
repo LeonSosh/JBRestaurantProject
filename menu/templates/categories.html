@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Categories</h1>
+  <div class="container">
+    <div class="row">
+      {% for category in categories %}
+        <div class="col s12 m4">
+          <div class="card item-card">
+            <a href="{% url 'dishes' category.id %}">
+              <div class="card-image">
+                <img class="category-image"
+                     src="{{ category.image.url }}"
+                     alt="{{ category.name }}">
+                <span class="card-title">{{ category.name }}</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        {% if forloop.counter|divisibleby:3 and not forloop.last %}
+        </div>
+        <div class="row">
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1 class="center">Cart</h1>
+  {% if items %}
+    <div class="container">
+      <ul class="collection">
+        {% for item in items %}
+          <li class="collection-item avatar">
+            <img src="{{ item.dish.image.url }}"
+                 alt="{{ item.dish.name }}"
+                 class="circle">
+            <span class="title">{{ item.amount }} x {{ item.dish.name }}</span>
+            <p>${{ item.dish.price }}</p>
+            <div class="secondary-content">
+              <a href="{% url 'increment_cart_item' item.id %}">+</a>
+              <a href="{% url 'decrement_cart_item' item.id %}">-</a>
+              <a href="{% url 'remove_cart_item' item.id %}">Remove</a>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+      <p>Total Amount: ${{ total_amount }}</p>
+      <p>
+        <a href="{% url 'place_order' %}" class="btn waves-effect waves-light">Place Order</a>
+      </p>
+    </div>
+  {% else %}
+    <p class="center">Your cart is empty.</p>
+  {% endif %}
+{% endblock %}

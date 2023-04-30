@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1 class="center">Order history</h1>
+  {% for delivery in orders %}
+    <div class="container">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Order Number: {{ delivery.pk }}</span>
+          <p>Date and Time: {{ delivery.created }}</p>
+          <p>Subtotal: ${{ delivery.subtotal|floatformat:"2" }}</p>
+          <p>Delivery Fee: ${{ delivery.delivery_fee|floatformat:"2" }}</p>
+          <p>Total Amount: ${{ delivery.total|floatformat:"2" }}</p>
+          <p>Items:</p>
+          <ul class="collection">
+            {% for item in delivery.cart.items %}
+              <li class="collection-item avatar">
+                <img src="{{ item.dish.image.url }}"
+                     alt="{{ item.dish.name }}"
+                     class="circle">
+                <span class="title">{{ item.amount }} x {{ item.dish.name }}</span>
+                <p>${{ item.dish.price|floatformat:"2" }}</p>
+                {% if item.dish.is_vegetarian %}<span class="new badge" data-badge-caption="Vegetarian"></span>{% endif %}
+                {% if item.dish.is_gluten_free %}<span class="new badge" data-badge-caption="Gluten-free"></span>{% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p class="center">You have no orders yet.</p>
+  {% endfor %}
+{% endblock %}

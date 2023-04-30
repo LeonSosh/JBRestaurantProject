@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1 class="center">Order Confirmed</h1>
+  <div class="container">
+    <p>Order Number: {{ delivery.pk }}</p>
+    <p>Date and Time: {{ delivery.created }}</p>
+    <p>Subtotal: ${{ total_amount }}</p>
+    <p>Delivery Fee: ${{ delivery_fee }}</p>
+    <p>Total: ${{ correct_total_amount|floatformat:2 }}</p>
+    <h2>Items:</h2>
+    <ul class="collection">
+      {% for item in items %}
+        <li class="collection-item avatar">
+          <img src="{{ item.dish.image.url }}"
+               alt="{{ item.dish.name }}"
+               class="circle">
+          <span class="title">{{ item.amount }} x {{ item.dish.name }}</span>
+          {% if item.dish.is_vegetarian %}(Vegetarian){% endif %}
+          {% if item.dish.is_gluten_free %}(Gluten-free){% endif %}
+          <p>${{ item.dish.price }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+    <a class="btn waves-effect waves-light" href="{% url 'categories' %}">Continue Shopping</a>
+  </div>
+{% endblock %}

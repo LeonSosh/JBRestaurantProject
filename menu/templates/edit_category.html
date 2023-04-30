@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Edit Category: {{ category.name }}</h2>
+  <form method="post" enctype="multipart/form-data" class="col s12">
+    {% csrf_token %}
+    <div class="row">
+      <div class="input-field col s12">
+        <label for="{{ form.name.auto_id }}">Name</label>
+        {{ form.name }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="file-field input-field col s12">
+        <div class="btn">
+          <span>Image</span>
+          <input type="file"
+                 name="{{ form.image.html_name }}"
+                 id="{{ form.image.auto_id }}">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text" placeholder="Choose image">
+        </div>
+      </div>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit">Save</button>
+  </form>
+{% endblock %}

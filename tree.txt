@@ -1,0 +1,119 @@
+|   .env
+|   db.sqlite3
+|   manage.py
+|   tree.txt
+|   
++---menu
+|   |   admin.py
+|   |   apps.py
+|   |   forms.py
+|   |   models.py
+|   |   urls.py
+|   |   __init__.py
+|   |   
+|   +---management
+|   |   \---commands
+|   |       |   create_groups.py
+|   |       |   create_manager.py
+|   |       |   populate_db_command.py
+|   +---templates
+|   |       base.html
+|   |       cart.html
+|   |       categories.html
+|   |       create_category.html
+|   |       create_dish.html
+|   |       dishes.html
+|   |       edit_category.html
+|   |       edit_dish.html
+|   |       landing_page.html
+|   |       management_panel.html
+|   |       manage_deliveries.html
+|   |       manage_dishes.html
+|   |       order_confirmed.html
+|   |       order_history.html
+|   |       password_change.html
+|   |       password_change_done.html
+|   |       place_order.html
+|   |       register.html
+|   |       update_details.html
+|   |       user_login.html
+|   |       
+|   +---tests
+|   |   |   test_auth_views.py
+|   |   |   test_delivery_views.py
+|   |   |   test_forms.py
+|   |   |   test_models.py
+|   |   |   __init__.py
+|   +---views
+|   |   |   auth_views.py
+|   |   |   cart_views.py
+|   |   |   category_views.py
+|   |   |   delivery_views.py
+|   |   |   dish_views.py
+|   |   |   __init__.py
+|   |   |   
++---restaurant_delivery
+|   |   asgi.py
+|   |   urls.py
+|   |   wsgi.py
+|   |   __init__.py
+|   |   
+|   +---media
+|   |   +---categories
+|   |   |       desserts_Qep5noV.jpg
+|   |   |       drinks_xMaLpoh.jpg
+|   |   |       mains_MDsx9jW.jpg
+|   |   |       pastas_qDSiWzs.jpg
+|   |   |       pizzas_YKy8Xdp.jpg
+|   |   |       starters_cz6YgWC.jpg
+|   |   |       
+|   |   \---dishes
+|   |           apple_pie_W2IceCd.jpg
+|   |           bbq_chicken_pizza_XLY4jYs.jpg
+|   |           bruschetta_Mv231Wk.jpg
+|   |           buffalo_wings_gjJ8kXk.jpg
+|   |           carbonara_TOXyxPK.jpg
+|   |           cheesecake_ZRvLkWT.jpg
+|   |           chicken-parmesan_zkN5Qxn.jpg
+|   |           chocolate_cake_xHtdSGE.jpg
+|   |           cosmopolitan_gPi8VGH.jpg
+|   |           Espresso-Martini_UfzGYtB.jpg
+|   |           Fettuccine-Alfredo_8BVsyDC.jpg
+|   |           fried-calamari_UHcMmlY.jpg
+|   |           Grilled-Salmon_DptwdS8.jpg
+|   |           grilled_steak_dbhbKZJ.jpg
+|   |           hawaiian_pizza_iZI8P2j.jpg
+|   |           ice_cream_sundae_revdtLo.jpg
+|   |           Lasagna_qimoZpC.jpg
+|   |           margarita_LGX8Yhv.jpg
+|   |           margherita_pizza_WMfyiht.jpg
+|   |           marinara_with_shrimp_or_chicken_T48zQ5c.jpg
+|   |           meat_lovers_pizza_CHYidOs.jpg
+|   |           mojito_DaquvhA.jpg
+|   |           old_fashioned_rE6goRH.jpg
+|   |           onion-rings_GmGHTfz.jpg
+|   |           pepperoni_pizza_N5CAFfu.jpg
+|   |           pesto_pasta_xt9fTs1.jpg
+|   |           roasted_chicken_o8vRj8O.jpg
+|   |           spinach_and_artichoke_dip_yjeMsHN.jpg
+|   |           tiramisu_4wHjcus.jpg
+|   |           vegetable-stir-fry_Ks35BTM.jpg
+|   |           
+|   +---settings
+|   |   |   base.py
+|   |   |   development.py
+|   |   |   production.py
+|   |   |   __init__.py
+\---static
+    |   index.html
+    |   
+    +---css
+    |       materialize.css
+    |       materialize.min.css
+    |       style.css
+    |       
+    \---js
+            init.js
+            materialize.js
+            materialize.min.js
+            materialize.min.js.map

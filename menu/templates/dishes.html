@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>{{ category.name }}</h1>
+  {% if dishes %}
+    <div class="container">
+      <div class="row">
+        {% for dish in dishes %}
+          <div class="col s12 m4">
+            <div class="card item-card">
+              <div class="card-image">
+                <img src="{{ dish.image.url }}"
+                     alt="{{ dish.name }}"
+                     class="category-image">
+                <span class="card-title">{{ dish.name }}</span>
+                <a class="btn-floating halfway-fab waves-effect waves-light"
+                   href="{% url 'add_to_cart' dish.id %}">
+                  <i class="material-icons">add_shopping_cart</i>
+                </a>
+              </div>
+              <div class="card-content">
+                <p>{{ dish.description }}</p>
+                <p>${{ dish.price }}</p>
+                {% if dish.is_vegetarian %}<p>Vegetarian</p>{% endif %}
+                {% if dish.is_gluten_free %}<p>Gluten-free</p>{% endif %}
+              </div>
+            </div>
+          </div>
+          {% if forloop.counter|divisibleby:3 and not forloop.last %}
+          </div>
+          <div class="row">
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  {% else %}
+    <p>No dishes available.</p>
+  {% endif %}
+{% endblock %}

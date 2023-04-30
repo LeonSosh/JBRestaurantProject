@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2 class="center">Edit Dish</h2>
+  <div class="container">
+    <form method="post" enctype="multipart/form-data" class="col s12">
+      {% csrf_token %}
+      <div class="row">
+        <div class="input-field col s12">
+          {{ form.name.label_tag }}
+          {{ form.name }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          {{ form.category.label_tag }}
+          {{ form.category }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          {{ form.description.label_tag }}
+          {{ form.description }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          {{ form.price.label_tag }}
+          {{ form.price }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          {{ form.is_vegetarian.label_tag }}
+          {{ form.is_vegetarian }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          {{ form.is_gluten_free.label_tag }}
+          {{ form.is_gluten_free }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          {{ form.image.label_tag }}
+          {{ form.image }}
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit">Update Dish</button>
+    </form>
+  </div>
+{% endblock %}

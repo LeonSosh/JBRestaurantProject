@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Create Dish</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+      {% for field in form %}
+        {% if field.name == "description" %}
+          <div class="input-field col s12">
+            {{ field.label_tag }}
+            <textarea id="{{ field.auto_id }}"
+                      class="materialize-textarea"
+                      name="{{ field.html_name }}"
+                      style="background-color: rgb(255, 255, 255)">{{ field.value|default:'' }}</textarea>
+          </div>
+        {% elif field.name == "is_gluten_free" or field.name == "is_vegetarian" %}
+          <p>
+            <label>
+              {{ field }}
+              <span>{{ field.label }}</span>
+            </label>
+          </p>
+        {% else %}
+          <div class="input-field col s12">
+            {{ field.label_tag }}
+            {{ field }}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <button class="btn waves-effect waves-light" type="submit">Create Dish</button>
+  </form>
+{% endblock %}

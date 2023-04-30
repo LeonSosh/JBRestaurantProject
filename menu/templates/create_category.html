@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Create Category</h2>
+  <form method="post" enctype="multipart/form-data" class="col s12">
+    {% csrf_token %}
+    <div class="row">
+      <div class="input-field col s12">
+        {{ form.name.label_tag }}
+        {{ form.name }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        {{ form.image.label_tag }}
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>Image</span>
+            {{ form.image }}
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit">Create</button>
+  </form>
+{% endblock %}
