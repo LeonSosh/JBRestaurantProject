@@ -93,7 +93,7 @@ ALLOWED_HOSTS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://retaurantfrontend.bluesky-e44c31d9.germanywestcentral.azurecontainerapps.io/",
+    "https://retaurantfrontend.bluesky-e44c31d9.germanywestcentral.azurecontainerapps.io",
     "http://localhost:3000",
     "http://localhost:8000",
     "http://projectleonrestaurant.bluesky-e44c31d9.germanywestcentral.azurecontainerapps.io",
