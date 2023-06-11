@@ -1,0 +1,9 @@
+.git
+.gitignore
+db.sqlite3
+*.pot
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+local_settings.py
