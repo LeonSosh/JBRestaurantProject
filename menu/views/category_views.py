@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
-from django.views.generic import TemplateView, ListView
-from menu.models import Category
+from django.views.generic import ListView, TemplateView
+
 from menu.forms import CategoryForm
+from menu.models import Category
 from menu.views.delivery_views import ManagerRequiredMixin
 
 

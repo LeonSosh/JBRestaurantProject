@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect, render
 from django.views import View
+
 from menu.forms import RegistrationForm, UserLoginForm, UserUpdateForm
 
 

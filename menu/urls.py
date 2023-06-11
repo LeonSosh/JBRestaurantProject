@@ -1,14 +1,11 @@
 from django.conf import settings
 from django.conf.urls.static import static
-from django.urls import path, include
-from django.contrib.auth.views import PasswordChangeView, PasswordChangeDoneView, LogoutView
-from menu.views import (
-    auth_views,
-    category_views,
-    cart_views,
-    delivery_views,
-    dish_views,
-)
+from django.contrib.auth.views import (LogoutView, PasswordChangeDoneView,
+                                       PasswordChangeView)
+from django.urls import include, path
+
+from menu.views import (auth_views, cart_views, category_views, delivery_views,
+                        dish_views)
 
 urlpatterns = [
     path("api/", include("menu.api.urls")),

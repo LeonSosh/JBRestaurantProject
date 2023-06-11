@@ -1,10 +1,12 @@
-from django.shortcuts import redirect, get_object_or_404
-from django.views.generic import ListView, TemplateView, View
+from decimal import Decimal
+
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from menu.models import Dish, Item, Cart, Delivery
+from django.shortcuts import get_object_or_404, redirect
+from django.views.generic import ListView, TemplateView, View
+
 from menu.forms import PlaceOrderForm
-from decimal import Decimal
+from menu.models import Cart, Delivery, Dish, Item
 
 
 class CartView(LoginRequiredMixin, ListView):

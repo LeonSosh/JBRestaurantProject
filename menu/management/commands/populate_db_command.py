@@ -1,9 +1,11 @@
-from django.core.management.base import BaseCommand
-from menu.models import Category, Dish
 import os
+
 import django
-from google_images_search import GoogleImagesSearch
 import requests
+from django.core.management.base import BaseCommand
+from google_images_search import GoogleImagesSearch
+
+from menu.models import Category, Dish
 
 
 def create_categories_and_dishes():

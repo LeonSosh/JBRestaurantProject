@@ -1,9 +1,11 @@
-from django.test import TestCase
-from django.contrib.auth.models import User
-from django.utils import timezone
-from menu.models import Category, Dish, Cart, Item, Delivery
-from decimal import Decimal
 import datetime
+from decimal import Decimal
+
+from django.contrib.auth.models import User
+from django.test import TestCase
+from django.utils import timezone
+
+from menu.models import Cart, Category, Delivery, Dish, Item
 
 
 class CategoryModelTest(TestCase):

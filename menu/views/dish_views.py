@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.mixins import UserPassesTestMixin
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
 from django.views.generic import ListView
-from django.contrib.auth.mixins import UserPassesTestMixin
-from menu.models import Dish, Category, Item
+
 from menu.forms import DishForm
+from menu.models import Category, Dish, Item
 
 
 class ManagerRequiredMixin(UserPassesTestMixin):

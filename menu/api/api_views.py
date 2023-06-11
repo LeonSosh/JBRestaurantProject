@@ -1,5 +1,7 @@
 from rest_framework import generics
+
 from menu.models import Category, Dish
+
 from .serializers import CategorySerializer, DishSerializer
 
 

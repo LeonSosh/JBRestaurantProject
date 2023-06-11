@@ -1,8 +1,11 @@
-from django.test import TestCase, RequestFactory
-from django.contrib.auth.models import User, Group
-from menu.models import Category, Dish, Cart, Item, Delivery
-from menu.views.delivery_views import ManageDeliveriesView, MarkAsDeliveredView, ViewOrderHistoryView
+from django.contrib.auth.models import Group, User
 from django.core.files.uploadedfile import SimpleUploadedFile
+from django.test import RequestFactory, TestCase
+
+from menu.models import Cart, Category, Delivery, Dish, Item
+from menu.views.delivery_views import (ManageDeliveriesView,
+                                       MarkAsDeliveredView,
+                                       ViewOrderHistoryView)
 
 
 class DeliveryViewsTestCase(TestCase):

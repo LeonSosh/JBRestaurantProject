@@ -1,10 +1,13 @@
-from django.test import TestCase
-from django.core.files.uploadedfile import SimpleUploadedFile
-from django.contrib.auth.models import User
-from menu.forms import CategoryForm, DishForm, PlaceOrderForm, RegistrationForm, UserLoginForm, UserUpdateForm
-from menu.models import Category
 from io import BytesIO
+
+from django.contrib.auth.models import User
+from django.core.files.uploadedfile import SimpleUploadedFile
+from django.test import TestCase
 from PIL import Image
+
+from menu.forms import (CategoryForm, DishForm, PlaceOrderForm,
+                        RegistrationForm, UserLoginForm, UserUpdateForm)
+from menu.models import Category
 
 
 class CategoryFormTest(TestCase):
